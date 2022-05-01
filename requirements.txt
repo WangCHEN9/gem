@@ -1,0 +1,11 @@
+shap
+pycaret[full]
+streamlit
+streamlit-pandas-profiling
+streamlit-aggrid
+Pillow
+pandas-profiling
+hpbandster
+xlrd
+xlsxwriter
+openpyxl
