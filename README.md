@@ -50,8 +50,8 @@ machine learning:
 1. Clone the repository to you computer:
 
 ```shell script
-git clone https://github.com/redcican/pycaret-eidodata.git
-cd pycaret-eidodata
+git clone https://github.com/WangCHEN9/gem
+cd gem
 ```
 
 2. Creata a conda virtual or python virtual environment and then activate it.
