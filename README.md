@@ -95,6 +95,8 @@ docker run -p 8501:8501 wangchen9/gem
 
 - [http://localhost:8501](http://localhost:8501)
 
+---
+
 ## Deploy in heroku
 
 1. Download and install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
