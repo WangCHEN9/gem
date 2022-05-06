@@ -9,6 +9,7 @@ WORKDIR /app
 ADD . /app
 
 # Install dependencies
+RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # copying all files over
