@@ -1,5 +1,7 @@
 # Give Everybody MachineLearning
 
+[![Docker Image CI](https://github.com/WangCHEN9/gem/actions/workflows/docker-image.yml/badge.svg)](https://github.com/WangCHEN9/gem/actions/workflows/docker-image.yml)
+
 ---
 
 An End-to-End Machine Learning Web Application for Classification and Regression problem. Supported for csv and excel files. The application relies on these two excellent libraries for
@@ -75,8 +77,6 @@ streamlit run app.py
 
 ---
 
----
-
 ## Run on Docker
 
 1. Pull the Docker image:
@@ -94,3 +94,36 @@ docker run -p 8501:8501 wangchen9/gem
 3. Open the localhost:8501
 
 - [http://localhost:8501](http://localhost:8501)
+
+## Deploy in heroku
+
+1. Download and install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+
+```
+heroku login
+```
+
+2. You must have Docker set up locally to continue. You should see output when you run this command.
+
+```
+docker ps
+```
+
+3. Now you can sign into Container Registry.
+
+```
+heroku container:login
+```
+
+4. Build the Dockerfile in the current directory and push the Docker image.
+
+```
+heroku container:push web --app=g-e-m
+```
+
+5. Release the newly pushed images to deploy your app.
+
+```
+heroku container:release web
+
+```
