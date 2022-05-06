@@ -74,3 +74,23 @@ streamlit run app.py
 ```
 
 ---
+
+---
+
+## Run on Docker
+
+1. Pull the Docker image:
+
+```
+docker pull wangchen9/gem:latest
+```
+
+2. Run the Docker image locally:
+
+```
+docker run -p 8501:8501 wangchen9/gem
+```
+
+3. Open the localhost:8501
+
+- [http://localhost:8501](http://localhost:8501)
