@@ -103,27 +103,14 @@ docker run -p 8501:8501 wangchen9/gem
 heroku login
 ```
 
-2. You must have Docker set up locally to continue. You should see output when you run this command.
+2. we will add a new remote to our git repo
 
 ```
-docker ps
+heroku git:remote -a g-e-m
 ```
 
-3. Now you can sign into Container Registry.
+3. Push code to the repository and deploy it to Heroku using Git.
 
 ```
-heroku container:login
-```
-
-4. Build the Dockerfile in the current directory and push the Docker image.
-
-```
-heroku container:push web --app=g-e-m
-```
-
-5. Release the newly pushed images to deploy your app.
-
-```
-heroku container:release web
-
+git push heroku main
 ```
