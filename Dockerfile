@@ -1,4 +1,4 @@
-FROM python:3.8.5
+FROM python:3.8.13
 
 RUN pip install virtualenv
 ENV VIRTUAL_ENV=/venv
