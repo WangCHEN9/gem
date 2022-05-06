@@ -41,6 +41,7 @@ def run():
     st.set_page_config(
         page_title="Give Everybody MachineLearning",
         layout="centered",
+        page_icon= str(IMAGE_FOLDER / "gem_logo.png"),
         initial_sidebar_state="expanded",
     )
     load_nav_image(IMAGE_FOLDER / "gem_logo.png")
