@@ -4,8 +4,7 @@
 
 ---
 
-An End-to-End Machine Learning Web Application for Classification and Regression problem. Supported for csv and excel files. The application relies on these two excellent libraries for
-machine learning:
+An End-to-End Auto-ML Web Application for Classification and Regression problem. Supported for **csv and excel** files. Build with below two libraries:
 
 - streamlit: https://github.com/streamlit/streamlit
 - pycaret: https://github.com/pycaret/pycaret
