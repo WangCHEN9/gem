@@ -22,4 +22,4 @@ jobs:
           registry: docker.io
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-          tags: latest, ${{ github.run_number }}
+          tags: latest
