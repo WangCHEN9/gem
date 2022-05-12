@@ -73,12 +73,12 @@ def write(state):
                             state.trained_model = create_model(estimator=all_models[select_model], fold=fold, cross_validation=cross_validation)
                             st.success(f'creaet_model -> Done !')
                         state.log_history["create_model"] = pull(True)
+                        with st.spinner("Show All the Results..."):
+                            AgGrid(state.log_history["create_model"])
        
                 except Exception as err:
                     st.error(err)     
 
-                with st.spinner("Show All the Results..."):
-                    AgGrid(state.log_history["create_model"])
 
 
                 is_tuning = st.checkbox("Do You want to Tune the Hyperparemters?", value=False)
@@ -109,10 +109,10 @@ def write(state):
                             created_model = create_model(estimator=all_models[select_model])
                             state.trained_model = tune_model(created_model, fold=fold_tune, n_iter=n_iter, optimize=optimize, search_library=search_library, search_algorithm=search_algorithm,early_stopping=early_stopping, early_stopping_max_iters=early_stopping_iter, choose_better = choose_better)
                             state.log_history["tuned_models"] = pull(True)
+                            with st.spinner("Show All the Results..."):
+                                AgGrid(state.log_history["tuned_models"])
                             st.success(f'tune_model -> Done !')
 
-                    with st.spinner("Show All the Results..."):
-                        AgGrid(state.log_history["tuned_models"])
             
             else:
                 fold_ensemble_text = st.text_input('Control Cross Validation Folds (int or None)', value='None',key=3)
@@ -164,9 +164,8 @@ def write(state):
                             choose_better=choose_better_ensemble,optimize=optimize_ensemble)
                         st.success(f'stack_models -> Done !')
                         state.log_history["create_model"] = pull(True)
-                
-                with st.spinner("Show All the Results..."):
-                    AgGrid(state.log_history["create_model"])
+                        with st.spinner("Show All the Results..."):
+                            AgGrid(state.log_history["create_model"])
    
             state.X_before_preprocess = get_config('data_before_preprocess')
             state.y_before_preprocess = get_config('target_param')
