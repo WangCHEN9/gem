@@ -10,6 +10,9 @@ machine learning:
 - streamlit: https://github.com/streamlit/streamlit
 - pycaret: https://github.com/pycaret/pycaret
 
+
+## Demo video
+https://youtu.be/PsQ2efLdRCc
 ---
 
 ## Features
