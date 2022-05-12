@@ -97,7 +97,7 @@ docker run -p 8501:8501 wangchen9/gem
 
 ---
 
-## Deploy in heroku
+## Deploy in heroku (free tier only have 500MB memory -> Not enough for this app)
 
 1. Download and install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 
