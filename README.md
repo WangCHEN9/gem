@@ -92,12 +92,12 @@ docker pull wangchen9/gem:latest
 2. Run the Docker image locally:
 
 ```
-docker run -p 8501:8501 wangchen9/gem
+docker run -p 80:80 wangchen9/gem
 ```
 
-3. Open the localhost:8501
+3. Open the localhost:80
 
-- [http://localhost:8501](http://localhost:8501)
+- [http://localhost:80](http://localhost:80)
 
 ---
 
