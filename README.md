@@ -111,7 +111,7 @@ heroku login
 heroku git:remote -a g-e-m
 ```
 
-3. Push code to the repository and deploy it to Heroku using Git.
+3. Push code to the repository and deploy it to Heroku using Git. (only step needed for future deployment)
 
 ```
 git push heroku main
