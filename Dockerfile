@@ -17,7 +17,7 @@ COPY . /app
 
 # Expose port 
 ENV PORT 80
-
+EXPOSE 80
 # cmd to launch app when container is run
 ENTRYPOINT ["streamlit", "run"]
 CMD ["app.py"]
