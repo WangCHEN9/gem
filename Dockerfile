@@ -19,7 +19,8 @@ COPY . /app
 ENV PORT 80
 
 # cmd to launch app when container is run
-CMD streamlit run app.py
+ENTRYPOINT ["streamlit", "run"]
+CMD ["app.py"]
 
 # streamlit-specific commands for config
 # ENV LC_ALL=C.UTF-8
