@@ -77,14 +77,9 @@ def write(state):
                 except Exception as err:
                     st.error(err)     
 
-                st.markdown('<p style="color:#1386fc">Show All the Metrics Results After Tuning.</p>',unsafe_allow_html=True)       
-                button_after_create = st.button("Show Model Result")
-                try:
-                    if button_after_create:
-                        with st.spinner("Show All the Results..."):
-                            AgGrid(state.log_history["create_model"])
-                except:
-                    st.error("Please Train a Model first!")
+                with st.spinner("Show All the Results..."):
+                    AgGrid(state.log_history["create_model"])
+
 
                 is_tuning = st.checkbox("Do You want to Tune the Hyperparemters?", value=False)
                 if is_tuning:
@@ -116,11 +111,8 @@ def write(state):
                             state.log_history["tuned_models"] = pull(True)
                             st.success(f'tune_model -> Done !')
 
-                    st.markdown('<p style="color:#1386fc">Show All the Metrics Results After Tuning.</p>',unsafe_allow_html=True)       
-                    button_tuning = st.button("Show Tuning Model Result")
-                    if button_tuning:
-                        with st.spinner("Show All the Results..."):
-                            AgGrid(state.log_history["tuned_models"])
+                    with st.spinner("Show All the Results..."):
+                        AgGrid(state.log_history["tuned_models"])
             
             else:
                 fold_ensemble_text = st.text_input('Control Cross Validation Folds (int or None)', value='None',key=3)
