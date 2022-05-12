@@ -105,7 +105,7 @@ docker run -p 8501:8501 wangchen9/gem
 heroku login
 ```
 
-2. we will add a new remote to our git repo
+2. we will add a new remote to our git repo (only need run once)
 
 ```
 heroku git:remote -a g-e-m
