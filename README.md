@@ -4,8 +4,9 @@
 
 ---
 
-An End-to-End Auto-ML Web Application for Classification and Regression problem. Supported for **csv and excel** files. Build with below two libraries:
+An End-to-End Auto-ML Web Application for Classification and Regression problem. 
 
+Supported for **csv and excel** files. Build with below two libraries:
 - streamlit: https://github.com/streamlit/streamlit
 - pycaret: https://github.com/pycaret/pycaret
 
