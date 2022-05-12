@@ -60,7 +60,7 @@ def write(state):
         
         
         st.subheader("Create Model")
-        with st.expander("Select Parameters for Creating Model"):
+        with st.expander("Select Parameters for Creating Model", expanded=True):
             if not state.is_ensemble:
                 fold_text = st.text_input('Control Cross Validation Folds (int or None)', value='None',key=1)
                 fold = None if fold_text == 'None' else int(fold_text)
