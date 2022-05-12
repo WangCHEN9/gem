@@ -12,7 +12,8 @@ def write(state):
 
         select_model = None 
         select_model_names = list(all_models.keys())
-        select_model_names.remove('ExtremeGradientBoosting')
+        if 'ExtremeGradientBoosting' in select_model_names:
+            select_model_names.remove('ExtremeGradientBoosting')
 
         best_name = ""
         ensemble_method =""
