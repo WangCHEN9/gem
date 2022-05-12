@@ -23,9 +23,10 @@ def write(state):
         
         if state.best is not None:
             train_options = ["From Best", "Single Model", "Ensemble Model"]
-            if state.transform_target:
-                best_name = state.best.__dict__['regressor'].__class__.__name__
-                st.write(best_name)
+            if 'transform_target' in state:
+                if state.transform_target:
+                    best_name = state.best.__dict__['regressor'].__class__.__name__
+                    st.write(best_name)
             else:
                 best_name = state.best.__class__.__name__
             # the class name of "Lasso" must be modified manually
@@ -34,7 +35,7 @@ def write(state):
         else:
             train_options = ["Single Model", "Ensemble Model"]
                
-        train_option = st.radio("Select a Mode to Train Model", options=train_options)
+        train_option = st.radio("Select a Mode to Train Model", options=train_options, help=f"From best will use estimated best model from Preprocess step")
         
         if train_option == "From Best":        
             select_model = best_name
@@ -69,10 +70,11 @@ def write(state):
                     if button_create:
                         with st.spinner("Training Model..."):
                             state.trained_model = create_model(estimator=all_models[select_model], fold=fold, cross_validation=cross_validation)
+                            st.success(f'creaet_model -> Done !')
                         state.log_history["create_model"] = pull(True)
        
-                except:
-                    st.error("Please Set Up Dataset first!")     
+                except Exception as err:
+                    st.error(err)     
 
                 st.markdown('<p style="color:#1386fc">Show All the Metrics Results After Tuning.</p>',unsafe_allow_html=True)       
                 button_after_create = st.button("Show Model Result")
@@ -111,6 +113,7 @@ def write(state):
                             created_model = create_model(estimator=all_models[select_model])
                             state.trained_model = tune_model(created_model, fold=fold_tune, n_iter=n_iter, optimize=optimize, search_library=search_library, search_algorithm=search_algorithm,early_stopping=early_stopping, early_stopping_max_iters=early_stopping_iter, choose_better = choose_better)
                             state.log_history["tuned_models"] = pull(True)
+                            st.success(f'tune_model -> Done !')
 
                     st.markdown('<p style="color:#1386fc">Show All the Metrics Results After Tuning.</p>',unsafe_allow_html=True)       
                     button_tuning = st.button("Show Tuning Model Result")
@@ -133,6 +136,7 @@ def write(state):
                             state.trained_model = ensemble_model(base, method=select_ensemble_method, fold=fold_ensemble,
                                                                  n_estimators=n_estimators, choose_better=choose_better_ensemble,
                                                                  optimize=optimize_ensemble)
+                        st.success(f'ensemble model -> Done !')
                         state.log_history["create_model"] = pull(True)
 
                 elif ensemble_method == "Blend":
@@ -146,6 +150,7 @@ def write(state):
                             state.trained_model = blend_models(estimator_list=bases, fold=fold_ensemble,
                                                                  choose_better=choose_better_ensemble,
                                                                  optimize=optimize_ensemble)
+                        st.success(f'blend_models -> Done !')
                         state.log_history["create_model"] = pull(True)
 
                 else:
@@ -164,6 +169,7 @@ def write(state):
                                 meta_model = create_model(all_models[select_model_stack_seconnd])
                             state.trained_model = stack_models(estimator_list=bases, meta_model=meta_model,fold=fold_ensemble, restack=restack,
                             choose_better=choose_better_ensemble,optimize=optimize_ensemble)
+                        st.success(f'stack_models -> Done !')
                         state.log_history["create_model"] = pull(True)
                 
                 st.markdown('<p style="color:#1386fc">Show All the Metrics Results After Tuning.</p>',unsafe_allow_html=True)       
@@ -178,5 +184,5 @@ def write(state):
         return state
             
     else:
-        st.error("Please Set Up Dataset first!")           
+        st.error("Please run Preprocessing step first !")           
     

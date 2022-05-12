@@ -90,8 +90,9 @@ def run():
                 PAGES[selection][1].write(state)
             else:
                 PAGES[selection][2].write(state)
-        except AttributeError:
-            st.error("Please Upload Csv or Excel File first!")
+        except AttributeError as err:
+            st.error(f'please run Preprocess step first !')
+            st.warning(err)
 
     if selection == "Model Performance Analysis":
         try:
@@ -101,13 +102,16 @@ def run():
                 PAGES[selection][1].write(state)
             else:
                 PAGES[selection][2].write(state)
-        except AttributeError:
-            st.error("Please Upload Csv or Excel File first!")
+        except AttributeError as err:
+            st.error(f'please run Training step first !')
+            st.warning(err)
+
+
     if selection == "Prediction and Save":
         try:
             PAGES[selection].write(state)
-        except AttributeError:
-            st.error("Please Upload Csv or Excel File first!")
+        except AttributeError as err:
+            st.warning(err)
 
     # state.sync()
 

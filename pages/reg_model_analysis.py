@@ -34,7 +34,7 @@ def write(state):
                     st.error("Plot Not Available for multiclass problems.")    
                  
 
-            if state.transform_target:
+            if "transform_target" in state:
                 st.markdown('<p style="color:#f42756">SHAP Value is not supported for Model Transform Target</p>',unsafe_allow_html=True)       
             elif state.is_ensemble:
                 st.markdown('<p style="color:#f42756">SHAP Value is not supported for Ensemble Model</p>',unsafe_allow_html=True)       
