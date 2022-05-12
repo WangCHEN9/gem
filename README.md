@@ -10,9 +10,9 @@ machine learning:
 - streamlit: https://github.com/streamlit/streamlit
 - pycaret: https://github.com/pycaret/pycaret
 
-
 ## Demo video
-   https://youtu.be/PsQ2efLdRCc
+
+https://youtu.be/PsQ2efLdRCc
 
 ---
 
@@ -119,4 +119,18 @@ heroku git:remote -a g-e-m
 
 ```
 git push heroku main
+```
+
+## Deploy in Azure
+
+1. Download and install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+
+```
+az login
+```
+
+3. Push to azure acr which triggers the prod deployment
+
+```
+az acr build --registry GemApp --resource-group gem --image gem .
 ```
