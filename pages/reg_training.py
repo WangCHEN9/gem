@@ -69,7 +69,7 @@ def write(state):
                 button_create = st.button('Training a Single Model')
                 try:
                     if button_create:
-                        with st.spinner("Training Model..."):
+                        with st.spinner("Training Model...it will take few minutes"):
                             state.trained_model = create_model(estimator=all_models[select_model], fold=fold, cross_validation=cross_validation)
                             st.success(f'creaet_model -> Done !')
                         state.log_history["create_model"] = pull(True)
@@ -173,11 +173,8 @@ def write(state):
                         st.success(f'stack_models -> Done !')
                         state.log_history["create_model"] = pull(True)
                 
-                st.markdown('<p style="color:#1386fc">Show All the Metrics Results After Tuning.</p>',unsafe_allow_html=True)       
-                button_after_create = st.button("Show Model Result")
-                if button_after_create:
-                    with st.spinner("Show All the Results..."):
-                        AgGrid(state.log_history["create_model"])
+                with st.spinner("Show All the Results..."):
+                    AgGrid(state.log_history["create_model"])
    
             state.X_before_preprocess = get_config('data_before_preprocess')
             state.y_before_preprocess = get_config('target_param')
