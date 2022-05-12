@@ -191,7 +191,9 @@ def write(state):
         try:
             if button_compare:
                 with st.spinner('Comparing all Models...'):
-                    state.best = compare_models(exclude=['xgboost'],fold=fold_compare, cross_validation=cross_validation, sort=sort)
+                    state.best = compare_models(
+                        # exclude=['xgboost'],
+                        fold=fold_compare, cross_validation=cross_validation, sort=sort)
                     state.log_history["compare_models"] = pull(True)
         except:
             st.error("Please Process and Transform Data first!")
