@@ -52,11 +52,6 @@ def write(state):
                     transformation_method = st.selectbox('Method for Transfomation', options=['yeo-johnson','quantile'])
                 
                 fix_imbalance = st.checkbox('Fix Imbalance of Target Classes',value=False)
-                # fix_imbalance_method = None
-                # if fix_imbalance:
-                #     fix_imbalance_method = st.selectbox('Method to Handle Imbalance', options=['SMOTE','fit_resample'])    
-                #     if fix_imbalance_method == 'SMOTE':
-                #         fix_imbalance_method = None
 
                 # select categorical features
                 categorical_columns = df.select_dtypes(include=['category','object']).columns.tolist()
