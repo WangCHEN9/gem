@@ -4,11 +4,15 @@
 
 ---
 
-An End-to-End Machine Learning Web Application for Classification and Regression problem. Supported for csv and excel files. The application relies on these two excellent libraries for
-machine learning:
+An End-to-End Auto-ML Web Application for Classification and Regression problem. 
 
+Supported for **csv and excel** files. Build with below two libraries:
 - streamlit: https://github.com/streamlit/streamlit
 - pycaret: https://github.com/pycaret/pycaret
+
+## Demo video
+
+https://youtu.be/PsQ2efLdRCc
 
 ---
 
@@ -88,12 +92,12 @@ docker pull wangchen9/gem:latest
 2. Run the Docker image locally:
 
 ```
-docker run -p 8501:8501 wangchen9/gem
+docker run -p 80:80 wangchen9/gem
 ```
 
-3. Open the localhost:8501
+3. Open the localhost:80
 
-- [http://localhost:8501](http://localhost:8501)
+- [http://localhost:80](http://localhost:80)
 
 ---
 
@@ -115,4 +119,18 @@ heroku git:remote -a g-e-m
 
 ```
 git push heroku main
+```
+
+## Deploy in Azure
+
+1. Download and install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+
+```
+az login
+```
+
+3. Push to azure acr which triggers the prod deployment
+
+```
+az acr build --registry GemApp --resource-group gem --image gem .
 ```
