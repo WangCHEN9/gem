@@ -10,6 +10,17 @@ def write(state):
             # "Clustering",  #remove this feature for the moment
             ])
         state = st.file_uploader('Upload csv file for project', type=["csv", "xlsx"])
+        @st.cache
+        def convert_df(df):
+            # IMPORTANT: Cache the conversion to prevent computation on every rerun
+            return df.to_csv(index=False).encode('utf-8')
+        csv = convert_df(pd.read_csv(r'./public/delaney_solubility_with_descriptors.csv'))
+        st.download_button(
+            label="Download Example CSV file",
+            data=csv,
+            file_name='example_for_gem.csv',
+            mime='text/csv',
+        )
         if state is not None:
             file_extension = state.name.split('.')[1]
             if file_extension == "csv":
