@@ -1,7 +1,7 @@
 # Give Everybody MachineLearning
 
 [![Docker Image CI](https://github.com/WangCHEN9/gem/actions/workflows/docker-image.yml/badge.svg)](https://github.com/WangCHEN9/gem/actions/workflows/docker-image.yml)
-
+[![Build and deploy container app to Azure Web App - gem-fr](https://github.com/WangCHEN9/gem/actions/workflows/prod_gem-fr.yml/badge.svg)](https://github.com/WangCHEN9/gem/actions/workflows/prod_gem-fr.yml)
 ---
 
 An End-to-End Auto-ML Web Application for Classification and Regression problem. 
@@ -134,3 +134,5 @@ az login
 ```
 az acr build --registry GemApp --resource-group gem --image gem .
 ```
+
+OR Use github action -> see https://github.com/WangCHEN9/gem/actions/workflows/prod_gem-fr.yml
